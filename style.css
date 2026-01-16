@@ -1,36 +1,74 @@
 body {
     font-family: Arial, sans-serif;
     margin: 40px;
-    background: #ffffff;
-    color: #222;
+    background-color: #121212; /* Fond noir profond */
+    color: #f0f0f0;           /* Texte blanc cassé pour ne pas agresser les yeux */
 }
 
 h1 {
     text-align: center;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+h5 {
+    text-align: center;
     margin-bottom: 30px;
+    color: #aaaaaa; /* Gris plus clair pour l'email */
+    font-weight: normal;
 }
 
 #filters {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     text-align: center;
+}
+
+/* Style du menu de sélection */
+#categoryFilter {
+    background-color: #1e1e1e;
+    color: white;
+    border: 1px solid #444;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 15px;
+    background-color: #1e1e1e; /* Fond du tableau anthracite */
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 th, td {
-    border: 1px solid #ddd;
-    padding: 10px;
+    border: 1px solid #333; /* Bordures sombres très discrètes */
+    padding: 12px;
     text-align: center;
 }
 
 th {
-    background: #f0f0f0;
+    background-color: #2c2c2c; /* En-tête légèrement plus clair */
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
 }
 
+/* Nuances de noir pour les lignes alternées */
 tbody tr:nth-child(even) {
-    background: #fafafa;
+    background-color: #181818; 
+}
+
+/* Effet au survol d'une ligne */
+tbody tr:hover {
+    background-color: #333333;
+    transition: background-color 0.2s ease;
+}
+
+/* Mise en avant des noms de pilotes */
+td:first-child {
+    font-weight: bold;
+    color: #ffffff;
 }
