@@ -1,36 +1,46 @@
 const data = TIMES_DATA;
-
-function getCategory(ratio) {
-  ratio = parseFloat(ratio);
-  if (ratio < 4) return "GT1";
-  if (ratio < 7.5) return "GT2";
-  if (ratio < 10) return "GT3";
-  if (ratio < 13.5) return "GT4";
-  if (ratio < 17) return "GT5";
-  return "GT6";
-}
-
-data.forEach(e => {
-  const r = e.masse / e.puissance;
-  e.ratioNum = r; 
-  e.ratioDisp = r.toFixed(1); 
-  e.category = getCategory(r);
-});
-
 const table = document.querySelector("#timesTable tbody");
 
-// Fonction d'affichage propre
+// Convertit le temps en secondes, renvoie Infinity si vide ou invalide pour le tri
+const toSeconds = t => {
+  if (!t || t === "" || t === "---") return Infinity;
+  if (!t.includes(":")) return parseFloat(t);
+  const [m, s] = t.split(":");
+  return parseInt(m) * 60 + parseFloat(s);
+};
+
 function renderTable(dataToDisplay) {
   table.innerHTML = "";
+
+  // 1. On trouve les meilleurs temps (en ignorant Infinity)
+  const timesAller = dataToDisplay.map(e => toSeconds(e.tempsAller));
+  const timesRetour = dataToDisplay.map(e => toSeconds(e.tempsRetour));
+  
+  const bestAller = Math.min(...timesAller);
+  const bestRetour = Math.min(...timesRetour);
+
   dataToDisplay.forEach(e => {
     const row = document.createElement("tr");
+    
+    const secAller = toSeconds(e.tempsAller);
+    const secRetour = toSeconds(e.tempsRetour);
+
+    // 2. Choix de la couleur : Violet si record, Vert si temps normal, Blanc si pas de temps
+    let colorAller = "#00ff00"; 
+    if (secAller === Infinity) colorAller = "#ffffff";
+    else if (secAller === bestAller) colorAller = "#bb86fc";
+
+    let colorRetour = "#00ff00";
+    if (secRetour === Infinity) colorRetour = "#ffffff";
+    else if (secRetour === bestRetour) colorRetour = "#bb86fc";
+
     row.innerHTML = `
       <td>${e.pilote}</td>
       <td>${e.vehicule}</td>
       <td>${e.puissance}</td>
       <td>${e.masse}</td>
-      <td>${e.category} - ratio (${e.ratioDisp.replace('.', ',')} kg/ch)</td>
-      <td>${e.temps}</td>
+      <td style="font-weight: bold; color: ${colorAller};">${e.tempsAller || "---"}</td>
+      <td style="font-weight: bold; color: ${colorRetour};">${e.tempsRetour || "---"}</td>
       <td>${e.meteo}</td>
       <td>${e.date}</td>
     `;
@@ -38,22 +48,15 @@ function renderTable(dataToDisplay) {
   });
 }
 
-// Utilitaire pour convertir "MM:SS.ms" en secondes totales
-const toSeconds = t => {
-  const [m, s] = t.split(":");
-  return parseInt(m) * 60 + parseFloat(s);
-};
-
-// Affichage initial : Trié par temps par défaut
-data.sort((a, b) => toSeconds(a.temps) - toSeconds(b.temps));
+// Tri par défaut
+data.sort((a, b) => toSeconds(a.tempsAller) - toSeconds(b.tempsAller));
 renderTable(data);
 
-// Gestion dynamique du menu de tri
+// Menu de tri
 const select = document.getElementById("categoryFilter");
 select.innerHTML = `
-  <option value="temps">Trier par : Temps (Le plus rapide)</option>
-  <option value="category">Trier par : Catégorie (GT1 → GT6)</option>
-  <option value="ratio">Trier par : Ratio (Performance)</option>
+  <option value="aller">Trier par : Temps Aller</option>
+  <option value="retour">Trier par : Temps Retour</option>
   <option value="puissance">Trier par : Puissance (Max → Min)</option>
   <option value="masse">Trier par : Masse (Légère → Lourde)</option>
   <option value="date">Trier par : Date (Récent → Ancien)</option>
@@ -64,15 +67,11 @@ select.addEventListener("change", () => {
   let sortedData = [...data];
 
   switch (critere) {
-    case "temps":
-      sortedData.sort((a, b) => toSeconds(a.temps) - toSeconds(b.temps));
+    case "aller":
+      sortedData.sort((a, b) => toSeconds(a.tempsAller) - toSeconds(b.tempsAller));
       break;
-    case "category":
-      // Trie par nom de catégorie (GT1, GT2...)
-      sortedData.sort((a, b) => a.category.localeCompare(b.category));
-      break;
-    case "ratio":
-      sortedData.sort((a, b) => a.ratioNum - b.ratioNum);
+    case "retour":
+      sortedData.sort((a, b) => toSeconds(a.tempsRetour) - toSeconds(b.tempsRetour));
       break;
     case "puissance":
       sortedData.sort((a, b) => b.puissance - a.puissance);
@@ -84,6 +83,5 @@ select.addEventListener("change", () => {
       sortedData.sort((a, b) => new Date(b.date) - new Date(a.date));
       break;
   }
-
   renderTable(sortedData);
 });

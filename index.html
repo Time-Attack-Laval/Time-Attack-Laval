@@ -16,14 +16,15 @@
         </select>
     </div>
 
-    <table id="timesTable">
+<table id="timesTable">
         <thead>
             <tr>
                 <th>Pilote</th>
                 <th>Véhicule</th>
                 <th>Puissance (ch)</th>
                 <th>Masse (kg)</th>
-                <th>Catégorie (Ratio)</th> <th>Temps</th>
+                <th>Temps Aller</th>
+                <th>Temps Retour</th>
                 <th>Météo</th>
                 <th>Date</th>
             </tr>
@@ -37,7 +38,8 @@ const TIMES_DATA = [
     vehicule: "Renault Clio 2",
     puissance: 98,
     masse: 1000,
-    temps: "57.60",
+    tempsAller: "1:05.60",
+    tempsRetour: "57.60",
     meteo: "Sec",
     date: "2026-01-16"
   },
@@ -46,7 +48,8 @@ const TIMES_DATA = [
     vehicule: "Renault Twingo 1",
     puissance: 60,
     masse: 820,
-    temps: "55.23",
+    tempsAller: "1:02.18",
+    tempsRetour: "55.23",
     meteo: "Sec",
     date: "2026-01-16"
     },
@@ -55,7 +58,8 @@ const TIMES_DATA = [
     vehicule: "Mini cooper",
     puissance: 75,
     masse: 1070,
-    temps: "1:05.00",
+    tempsAller: "1:08.51",
+    tempsRetour: "1:05.13",
     meteo: "Sec",
     date: "2026-01-16"
     },
@@ -64,7 +68,8 @@ const TIMES_DATA = [
     vehicule: "Peugeot 208",
     puissance: 75,
     masse: 980,
-    temps: "1:02.00",
+    tempsAller: "",
+    tempsRetour: "1:02.27",
     meteo: "Sec",
     date: "2026-01-16"
     },
@@ -73,7 +78,18 @@ const TIMES_DATA = [
     vehicule: "Clio 3 phase 2",
     puissance: 68,
     masse: 1185,
-    temps: "1:09.34",
+    tempsAller: "1:20.01",
+    tempsRetour: "1:09.34",
+    meteo: "Sec",
+    date: "2026-01-16"
+    },
+    {
+    pilote: "Ecouvillon",
+    vehicule: "Clio 4",
+    puissance: 75,
+    masse: 1150,
+    tempsAller: "1:10.47",
+    tempsRetour: "1:02.81",
     meteo: "Sec",
     date: "2026-01-16"
     }
