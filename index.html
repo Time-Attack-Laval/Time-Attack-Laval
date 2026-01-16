@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Time Attack Laval</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Time Attack — Spéciale Rally Laval</h1>
+    <h5>Pour pouvoir homologué votre temps, merci de faire votre demande au près de l'adresse e-mail suivante : antoinerethore24@gmail.com</h5>
+
+    <div id="filters">
+        <label for="categoryFilter">Catégorie :</label>
+        <select id="categoryFilter">
+            <option value="all">Toutes</option>
+        </select>
+    </div>
+
+    <table id="timesTable">
+        <thead>
+            <tr>
+                <th>Pilote</th>
+                <th>Véhicule</th>
+                <th>Puissance (ch)</th>
+                <th>Masse (kg)</th>
+                <th>Catégorie (Ratio)</th> <th>Temps</th>
+                <th>Météo</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+<script>
+const TIMES_DATA = [
+  {
+    pilote: "Réthorique",
+    vehicule: "Renault Clio 2",
+    puissance: 98,
+    masse: 1000,
+    temps: "1:24.52",
+    meteo: "Sec",
+    date: "2025-12-17"
+  },
+  {
+    pilote: "Mécano",
+    vehicule: "Renault Twingo 1",
+    puissance: 60,
+    masse: 820,
+    temps: "1:27.78",
+    meteo: "Sec",
+    date: "2026-01-14"
+    },
+    {
+    pilote: "Tonion",
+    vehicule: "Mini cooper",
+    puissance: 75,
+    masse: 1070,
+    temps: "1:31.34",
+    meteo: "Sec",
+    date: "2025-11-25"
+    },
+    {
+    pilote: "Kiffeur",
+    vehicule: "Peugeot 208",
+    puissance: 75,
+    masse: 980,
+    temps: "1:34.19",
+    meteo: "Sec",
+    date: "2025-12-07"
+    }
+];
+</script>
+
+    <script src="app.js"></script>
+</body>
+</html>
