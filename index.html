@@ -2,120 +2,24 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Time Attack Laval</title>
+    <title>Time Attack Laval - Accueil</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Time Attack — Spéciale Rally Laval</h1>
-    <h5>Pour pouvoir homologuer votre temps, merci de faire votre demande au près de l'adresse e-mail suivante : time.attack.laval@gmail.com</h5>
+    <h1>Time Attack Laval</h1>
+    <h5>Choisissez votre circuit pour voir les chronos</h5>
 
-    <div id="filters">
-        <label for="categoryFilter">Catégorie :</label>
-        <select id="categoryFilter">
-            <option value="all">Toutes</option>
-        </select>
+    <div class="menu-container">
+        <a href="speciale.html" class="circuit-btn">
+            Spéciale Rally
+            <span class="circuit-desc">Tracé court</span>
+        </a>
+
+        <a href="zi.html" class="circuit-btn">
+            Circuit ZI
+            <span class="circuit-desc">Circuit long</span>
+        </a>
     </div>
 
-<table id="timesTable">
-        <thead>
-            <tr>
-                <th>Pilote</th>
-                <th>Véhicule</th>
-                <th>Puissance (ch)</th>
-                <th>Masse (kg)</th>
-                <th>Temps Aller</th>
-                <th>Temps Retour</th>
-                <th>Météo</th>
-                <th>Date</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
-<script>
-const TIMES_DATA = [
-  {
-    pilote: "Réthorique",
-    vehicule: "Renault Clio 2",
-    puissance: 98,
-    masse: 1000,
-    tempsAller: "1:05.60",
-    tempsRetour: "57.60",
-    meteo: "Sec",
-    date: "2026-01-16"
-  },
-  {
-    pilote: "Mécano",
-    vehicule: "Renault Twingo 1",
-    puissance: 60,
-    masse: 820,
-    tempsAller: "1:02.18",
-    tempsRetour: "55.23",
-    meteo: "Sec",
-    date: "2026-01-16"
-    },
-    {
-    pilote: "Tonion",
-    vehicule: "Mini one",
-    puissance: 75,
-    masse: 1070,
-    tempsAller: "1:08.51",
-    tempsRetour: "1:02.13",
-    meteo: "Sec",
-    date: "2026-01-16"
-    },
-    {
-    pilote: "Kiffeur",
-    vehicule: "Peugeot 208",
-    puissance: 75,
-    masse: 980,
-    tempsAller: "1:11.34",
-    tempsRetour: "1:02.27",
-    meteo: "Sec",
-    date: "2026-01-16"
-    },
-    {
-    pilote: "Beaucoupdevin",
-    vehicule: "Renault Clio 3",
-    puissance: 68,
-    masse: 1185,
-    tempsAller: "1:20.01",
-    tempsRetour: "1:09.34",
-    meteo: "Sec",
-    date: "2026-01-16"
-    },
-    {
-    pilote: "Ecouvillon",
-    vehicule: "Renault Clio 4",
-    puissance: 75,
-    masse: 1150,
-    tempsAller: "1:10.47",
-    tempsRetour: "1:02.81",
-    meteo: "Sec",
-    date: "2026-01-16"
-    },
-    {
-    pilote: "Acoustique",
-    vehicule: "Toyota Yaris 2",
-    puissance: 90,
-    masse: 1100,
-    tempsAller: "",
-    tempsRetour: "", 
-    meteo: "",
-    date: ""
-    },
-//    {
-//    pilote: "Pseudo",
-//    vehicule: "Modèle",
-//    puissance: ,
-//    masse: ,
-//    tempsAller: "",
-//    tempsRetour: "", 
-//    meteo: "Sec",
-//    date: "2026-"
-//    },
-];
-</script>
-
-    <script src="app.js"></script>
 </body>
 </html>

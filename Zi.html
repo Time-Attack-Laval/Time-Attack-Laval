@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Time Attack - Circuit ZI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="index.html" class="back-link">← Retour au choix du circuit</a>
+
+    <h1>Circuit ZI</h1> <h5>Envoyez vos temps à : time.attack.laval@gmail.com</h5>
+
+    <div id="filters">
+        <label for="categoryFilter">Filtres :</label>
+        <select id="categoryFilter">
+            <option value="all">Chargement...</option>
+        </select>
+    </div>
+
+    <table id="timesTable">
+        <thead>
+            <tr>
+                <th>Pilote</th>
+                <th>Véhicule</th>
+                <th>Puissance (ch)</th>
+                <th>Masse (kg)</th>
+                <th>Temps Tour</th>
+                <th>Météo</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+<script>
+// --- CONFIGURATION : Active le mode "Circuit fermé" ---
+const IS_CIRCUIT = true;
+
+// --- DONNÉES DU CIRCUIT ZI ---
+// Note : on utilise la clé "temps" au lieu de "tempsAller/Retour"
+const TIMES_DATA = [
+  {
+    pilote: "Mécano",
+    vehicule: "Renault Twingo 1",
+    puissance: 60,
+    masse: 820,
+    temps: "45.10", 
+    meteo: "Sec",
+    date: "2026-01-20"
+  },
+  {
+    pilote: "Réthorique",
+    vehicule: "Renault Clio 2",
+    puissance: 98,
+    masse: 1000,
+    temps: "46.05",
+    meteo: "Sec",
+    date: "2026-01-20"
+  }
+];
+</script>
+<script src="app.js"></script>
+</body>
+</html>

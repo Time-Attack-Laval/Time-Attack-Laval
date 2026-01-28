@@ -72,3 +72,55 @@ td:first-child {
     font-weight: bold;
     color: #ffffff;
 }
+
+/* --- Nouveaux styles pour le menu d'accueil --- */
+
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 50px;
+}
+
+.circuit-btn {
+    display: block;
+    width: 80%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: #1e1e1e;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: 2px solid #333;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.circuit-btn:hover {
+    background-color: #333;
+    border-color: #bb86fc; /* Bordure violette au survol */
+    transform: scale(1.05);
+}
+
+.circuit-desc {
+    display: block;
+    font-size: 0.9rem;
+    color: #888;
+    margin-top: 5px;
+    font-weight: normal;
+}
+
+/* Bouton retour en haut des pages circuits */
+.back-link {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #bb86fc;
+    text-decoration: none;
+    font-weight: bold;
+}
+.back-link:hover {
+    text-decoration: underline;
+}
