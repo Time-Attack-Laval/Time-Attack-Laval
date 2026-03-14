@@ -12,12 +12,20 @@
 
     <h1>Spéciale Rally Laval</h1>
 
-    <div id="filters">
-        <label for="categoryFilter">Filtres :</label>
-        <select id="categoryFilter">
-            <option value="all">Trier par...</option>
-        </select>
+    <div class="controls-container" style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 15px;">
+        <div class="track-card">
+            <p style="margin: 0; font-size: 1rem;">Tracé court avec virages rapides</p>
+            <span class="runs" style="color: #a1a1a1; font-size: 0.85rem;">⏱ 13 chronos enregistrés</span>
     </div>
+
+        <div id="filters">
+            <label for="categoryFilter">Filtres :</label>
+            <select id="categoryFilter">
+            </select>
+        </div>
+    </div>
+
+    
 
     <table id="timesTable">
         <thead>
@@ -46,7 +54,7 @@ const TIMES_DATA = [
     tempsAller: "51.18",
     tempsRetour: "57.60",
     meteo: "Sec",
-    date: "2026-01-16"
+    date: "2026-03-05"
   },
   {
     pilote: "Mécano",
@@ -66,7 +74,7 @@ const TIMES_DATA = [
     tempsAller: "51.07",
     tempsRetour: "",
     meteo: "Sec",
-    date: "2026-01-16"
+    date: "2026-03-03"
   },
   {
     pilote: "Tonion",

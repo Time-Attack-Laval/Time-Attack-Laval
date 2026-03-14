@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     margin: 40px;
-    background-color: #121212; /* Fond noir profond */
+    background-color: #121212; /* Fond noir profond */ 
     color: #f0f0f0;           /* Texte blanc cassé pour ne pas agresser les yeux */
 }
 
@@ -9,6 +9,36 @@ h1 {
     text-align: center;
     margin-bottom: 10px;
     color: #ffffff;
+}
+
+.runs {
+    margin-top: 5px;
+    display: block;
+    font-size: 0.9em;
+    color: #a1a1a1;
+}
+
+.best-times {
+    margin: 40px auto;
+    padding: 15px;
+    max-width: 320px;
+    background: #111;
+    border-radius: 10px;
+    border: 1px solid #333;
+    text-align: center;
+}
+
+.best-times h3 {
+    margin-bottom: 15px;
+}
+
+.best-times p {
+    margin: 5px 0;
+    color: #ccc;
+}
+
+.description {
+    margin-bottom: 5px;
 }
 
 h5 {
@@ -23,20 +53,34 @@ h5 {
     text-align: center;
 }
 
-/* Style du menu de sélection */
+/* Intégration parfaite avec le reste du site */
 #categoryFilter {
-    background-color: #1e1e1e;
-    color: white;
-    border: 1px solid #444;
-    padding: 8px 15px;
-    border-radius: 5px;
+    background-color: #1e1e1e; /* Même fond que tes lignes de tableau */
+    color: #f0f0f0;           /* Même blanc cassé que ton texte */
+    border: 1px solid #333;   /* Même bordure que tes cellules <td> */
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.85rem;
     cursor: pointer;
+    outline: none;
+}
+
+#categoryFilter:hover {
+    background-color: #2c2c2c; /* Même gris que tes en-têtes <th> au survol */
+    border-color: #444;
+}
+
+/* On harmonise le label pour qu'il soit discret */
+#filters label {
+    font-size: 0.85rem;
+    color: #a1a1a1; /* Même gris que tes chronos enregistrés */
+    margin-right: 8px;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 15px;
+    margin-top: 30px;
     background-color: #1e1e1e; /* Fond du tableau anthracite */
     border-radius: 8px;
     overflow: hidden;
@@ -123,4 +167,26 @@ td:first-child {
 }
 .back-link:hover {
     text-decoration: underline;
+}
+
+/* Nouveau conteneur pour aligner description et filtres */
+.controls-container {
+    display: flex;
+    justify-content: space-between; /* Écarte les éléments aux deux extrémités */
+    align-items: center;           /* Aligne verticalement au centre */
+    margin-bottom: 20px;
+    flex-wrap: wrap;               /* Permet de revenir à la ligne sur petit téléphone */
+    gap: 15px;
+}
+
+/* On réinitialise les marges par défaut pour éviter les décalages */
+.controls-container #filters, 
+.controls-container .track-card {
+    margin: 0;
+    text-align: left; /* Aligne le texte à gauche pour le bloc de gauche */
+}
+
+/* On s'assure que les filtres ne sont pas centrés quand ils sont dans ce conteneur */
+.controls-container #filters {
+    text-align: right;
 }
